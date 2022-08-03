@@ -29,6 +29,7 @@ body {
 header {
   position: fixed;
   width: 100%;
+  z-index: 2;
 }
 
 header,
@@ -63,7 +64,6 @@ header svg path {
 
 .menu {
   position: absolute;
-  z-index: 100;
   left: -100%;
   padding: 1rem;
   width: 100%;
@@ -140,6 +140,9 @@ section p {
 }
 
 section button {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   width: 20rem;
   height: 3rem;
   border: none;
@@ -150,10 +153,19 @@ section button {
   font-size: 1.1rem;
 }
 
+section button a {
+  text-decoration: none;
+  color: var(--sextaColor);
+}
+
 .wrapperSection .card {
   width: 100%;
   position: relative;
-  z-index: -100;
+  z-index: 1;
+}
+
+.wrapperSection.products {
+  background-color: var(--quintaColor);
 }
 
 .card h3 {
@@ -171,8 +183,59 @@ section button {
   width: 100%;
 }
 
-#contacts,
-#pedido {
-  background-color: var(--quintaColor);
-  height: 20rem;
+.contatcAddress {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.contatcAddress div {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.2rem;
+  justify-content: flex-start;
+}
+.contatcAddress div svg path {
+  stroke: var(--primaryColor);
+}
+
+.contatcAddress div p {
+  text-align: left;
+  width: 100%;
+  color: var(--headline);
+}
+
+.contatcAddress div a {
+  text-decoration: none;
+}
+
+section.wrapperSection.selleres {
+  background-color: var(--quartaColor);
+}
+
+.contactsSellers {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.5rem;
+  border-radius: 0.8rem;
+  background-color: var(--sextaColor);
+}
+
+.contactsSellers svg path {
+  fill: var(--primaryColor);
+}
+
+.contactsSellers {
+  text-decoration: none;
+  color: var(--primaryColor);
+  font-size: 1.2rem;
+}
+
+footer {
+  height: 10rem;
 }
