@@ -17,8 +17,8 @@ links.forEach(e => {
 })
 
 function toogleMenu() {
-  buttonOpen.classList.toggle('toggleMenu')
-  buttonClose.classList.toggle('toggleMenu')
+  buttonOpen.classList.toggle('toggleButtonMenu')
+  buttonClose.classList.toggle('toggleButtonMenu')
   menu.classList.toggle('showMenu')
   main.classList.toggle('menuExpanded')
 }

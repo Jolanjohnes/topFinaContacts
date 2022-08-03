@@ -25,19 +25,14 @@ body {
   font-family: 'DM Sans';
 }
 
-/* HEADER */
+/* Cabeçalho */
 header {
   position: fixed;
   width: 100%;
   z-index: 2;
 }
 
-header,
-header svg path {
-  transition: all ease 0.5s;
-}
-
-.wrapper {
+.wrapperHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,10 +42,9 @@ header svg path {
   top: 0;
   left: 0;
   width: 100%;
-}
-
-.headerTitle {
+  transition: all ease 0.5s;
   color: var(--primaryColor);
+  font-weight: 700;
 }
 
 .buttonMenu {
@@ -58,10 +52,15 @@ header svg path {
   background-color: transparent;
 }
 
-.buttonMenu svg {
+.buttonMenu svg path {
   stroke: var(--primaryColor);
 }
 
+.toggleButtonMenu {
+  display: none;
+}
+
+/* MenuFlutuante */
 .menu {
   position: absolute;
   left: -100%;
@@ -70,7 +69,7 @@ header svg path {
   background-color: var(--primaryColor);
   height: calc(100vh - 3.5rem);
   border-radius: 0 0 50% 0;
-  transition: all 0.5s;
+  transition: all 0.3s;
 }
 
 .showMenu {
@@ -91,22 +90,19 @@ header svg path {
   color: white;
 }
 
-.toggleMenu {
-  display: none;
-}
-
 main.menuExpanded {
   opacity: 0;
   visibility: hidden;
 }
 
 .activeHeaderScroll,
-.activeHeaderScroll h1,
 .activeHeaderScroll svg path {
   background-color: var(--primaryColor);
   color: var(--sextaColor);
   stroke: var(--sextaColor);
 }
+
+/* Corpo da pagina geral*/
 
 body main {
   margin-top: 3.5rem;
@@ -123,23 +119,23 @@ body main {
   align-items: center;
 }
 
-section h4 {
+.wrapperSection h4 {
   color: var(--primaryColor);
   font-size: 1.2rem;
 }
 
-section h2 {
+.wrapperSection h2 {
   font-size: 2rem;
   color: var(--headline);
 }
 
-section p {
+.wrapperSection p {
   font-size: 1.1rem;
   color: var(--paragraph);
   line-height: 1.6rem;
 }
 
-section button {
+.wrapperSection a {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -151,21 +147,22 @@ section button {
   font-weight: 700;
   color: var(--sextaColor);
   font-size: 1.1rem;
-}
-
-section button a {
   text-decoration: none;
   color: var(--sextaColor);
 }
 
-.wrapperSection .card {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-}
+/* style section specifity 
+seção produtos
+*/
 
 .wrapperSection.products {
   background-color: var(--quintaColor);
+}
+
+.products .card {
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .card h3 {
@@ -177,12 +174,21 @@ section button a {
   font-size: 2rem;
   color: var(--paragraph);
   color: var(--sextaColor);
+  display: flex;
+  flex-direction: column;
+}
+
+.card h3 span {
+  font-size: 0.8rem;
 }
 
 .card img {
   width: 100%;
 }
 
+/* style section specifity 
+seção contatos
+*/
 .contatcAddress {
   display: flex;
   flex-direction: column;
@@ -209,7 +215,10 @@ section button a {
 }
 
 .contatcAddress div a {
-  text-decoration: none;
+  background-color: transparent;
+  color: var(--headline);
+  text-align: left;
+  justify-content: flex-start;
 }
 
 section.wrapperSection.selleres {
@@ -237,5 +246,21 @@ section.wrapperSection.selleres {
 }
 
 footer {
-  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--primaryColor);
+  color: var(--sextaColor);
+}
+
+.social-links {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.social-links li {
+  list-style: none;
 }
