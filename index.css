@@ -28,8 +28,11 @@ body {
 /* Cabeçalho */
 header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   z-index: 2;
+  color: var(--primaryColor);
 }
 
 .wrapperHeader {
@@ -38,12 +41,9 @@ header {
   align-items: center;
   height: 3.5rem;
   padding-inline: 1rem;
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   transition: all ease 0.5s;
-  color: var(--primaryColor);
+
   font-weight: 700;
 }
 
@@ -96,10 +96,13 @@ main.menuExpanded {
 }
 
 .activeHeaderScroll,
+.activeHeaderScroll .menu ul,
+.activeHeaderScroll .menu ul li a,
 .activeHeaderScroll svg path {
   background-color: var(--primaryColor);
   color: var(--sextaColor);
   stroke: var(--sextaColor);
+  fill: var(--sextaColor);
 }
 
 /* Corpo da pagina geral*/
@@ -112,11 +115,22 @@ body main {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding-block: 4.5rem 2.5rem;
+  padding-block: 4.5rem 2rem;
   gap: 2rem;
   width: 100%;
   padding-inline: 0.8rem;
   align-items: center;
+}
+
+.wrapperSection .homeInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.wrapperSection .homeImg img {
+  width: 100%;
 }
 
 .wrapperSection h4 {
@@ -154,12 +168,17 @@ body main {
 /* style section specifity 
 seção produtos
 */
-
 .wrapperSection.products {
   background-color: var(--quintaColor);
 }
 
-.products .card {
+.wrapperSection .listProducts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.listProducts .card {
   width: 100%;
   position: relative;
   z-index: 1;
@@ -220,9 +239,18 @@ seção contatos
   text-align: left;
   justify-content: flex-start;
 }
+.map {
+  display: none;
+}
 
-section.wrapperSection.selleres {
+section.wrapperSection .selleres {
   background-color: var(--quartaColor);
+}
+
+.selleres div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .contactsSellers {
@@ -236,7 +264,7 @@ section.wrapperSection.selleres {
 }
 
 .contactsSellers svg path {
-  fill: var(--primaryColor);
+  fill: var(--sextaColor);
 }
 
 .contactsSellers {
@@ -263,4 +291,147 @@ footer {
 
 .social-links li {
   list-style: none;
+}
+
+/* Tablet  */
+
+@media (min-width: 768px) {
+  .wrapperSection.contacts {
+    flex-direction: row;
+  }
+
+  .map {
+    width: 100%;
+    height: 20rem;
+    display: block;
+  }
+
+  .wrapperSection .listProducts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .listProducts .card {
+    width: 20rem;
+  }
+
+  .wrapperSection.selleres div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+
+    flex-direction: row;
+  }
+}
+
+/* desktop */
+
+@media (min-width: 1024px) {
+  body {
+    width: 1024px;
+    margin-inline: auto;
+  }
+
+  header {
+    width: 1024px;
+    position: fixed;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    padding-inline: 2rem;
+    background-color: var(--sextaColor);
+    color: var(--primaryColor);
+    border-bottom: 1px solid var(--primaryColor);
+  }
+
+  .wrapperHeader {
+    padding: 0;
+    margin: 0;
+    width: 50%;
+  }
+
+  header .buttonMenu {
+    display: none;
+  }
+
+  nav.menu {
+    position: relative;
+    left: 0;
+    display: block;
+    width: 100%;
+
+    height: 100%;
+    border-radius: 0;
+    padding: 0;
+
+    background-color: var(--sextaColor);
+  }
+
+  nav.menu ul {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+  }
+  nav.menu ul li {
+    padding: 0;
+    width: 100%;
+    border: none;
+  }
+
+  nav.menu a {
+    color: var(--primaryColor);
+  }
+
+  main.menuExpanded {
+    opacity: initial;
+    visibility: initial;
+  }
+
+  /* Seção home */
+
+  .wrapperSection.home {
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .wrapperSection .homeInfo {
+    width: 100%;
+    height: 100%;
+    justify-self: start;
+    align-items: flex-start;
+  }
+
+  .wrapperSection .homeInfo h2,
+  .wrapperSection .homeInfo h4,
+  .wrapperSection .homeInfo p {
+    text-align: left;
+  }
+
+  .wrapperSection .homeImg {
+    width: 35rem;
+    height: 100%;
+    justify-self: end;
+  }
+
+  /* seção produtos */
+
+  .card h3 {
+    cursor: pointer;
+  }
+
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    text-align: center;
+  }
 }

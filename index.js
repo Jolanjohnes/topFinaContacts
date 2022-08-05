@@ -1,9 +1,9 @@
 const buttonOpen = document.getElementById('buttonOpen')
 const buttonClose = document.getElementById('buttonClose')
 const menu = document.getElementById('menu')
-const header = document.querySelector('header div')
+const header = document.querySelector('header')
 const main = document.querySelector('main')
-const links = document.querySelectorAll('.menu ul li a')
+const links = document.querySelectorAll('.menu ul li')
 
 function test() {
   console.log('Ok')
