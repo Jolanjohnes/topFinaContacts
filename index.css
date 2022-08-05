@@ -338,6 +338,7 @@ footer {
   header {
     width: 1024px;
     position: fixed;
+    left: auto;
     font-size: 1rem;
     display: flex;
     align-items: center;
